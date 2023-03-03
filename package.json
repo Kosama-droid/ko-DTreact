@@ -6,6 +6,7 @@
     "@emotion/react": "^11.10.5",
     "@emotion/styled": "^11.10.5",
     "@fontsource/roboto": "^4.5.8",
+    "@mapbox/mapbox-gl-draw": "^1.4.1",
     "@mapbox/mapbox-gl-geocoder": "^5.0.1",
     "@maplibre/maplibre-gl-geocoder": "^1.5.0",
     "@mui/icons-material": "^5.11.0",
@@ -20,11 +21,14 @@
     "@types/react-dom": "^18.0.10",
     "@use-gesture/react": "^10.2.24",
     "deck.gl": "^8.8.23",
+    "dotenv": "^16.0.3",
     "firebase": "^9.16.0",
     "hamburger-react": "^2.5.0",
     "mapbox": "^1.0.0-beta10",
     "mapbox-gl": "^2.12.1",
+    "mapbox-gl-draw": "^0.16.0",
     "maplibre-gl": "^2.4.0",
+    "nodemon": "^2.0.20",
     "react": "^18.2.0",
     "react-color": "^2.19.3",
     "react-dom": "^18.2.0",
@@ -65,5 +69,6 @@
   "devDependencies": {
     "@types/mapbox__mapbox-gl-geocoder": "^4.7.3",
     "@types/three": "^0.149.0"
-  }
+  },
+  "type": "module"
 }

@@ -28,13 +28,17 @@ export const Upload= () => {
 
   return (
     <React.Fragment>
-      <div id="upload-container" title="Upload" className="right-menu-body">
+      <span id="upload-container" title="Upload" className="right-menu-body">
         <button onClick={handleClickPlace}>Places</button>
         {openPlace && <UploadPlaces/>}
-
+      </span>
+      <br></br>
+      <br></br>
+      <br></br>
+      <span id="upload-container" title="Upload" className="right-menu-body">
         <button onClick={handleClickObjects}>Objects</button>
         {openObject && <UploadObjects/>}
-      </div>
+      </span>
       
     </React.Fragment>
   );

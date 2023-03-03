@@ -1,6 +1,7 @@
 import { useState, FC } from "react";
 import AddIcon from "@mui/icons-material/AddRounded";
 import { MenuButton } from "./menu-button";
+import {} from "./draw-polygon";
 
 export const UploadPlaces = () => {
 
