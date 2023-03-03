@@ -1,5 +1,10 @@
-import { FC, useRef, useState, useEffect } from "react";
+import { FC, useRef, useState, useEffect, useCallback } from "react";
 import { useSearchParams } from "react-router-dom";
+
+import {DrawControl} from "./draw-polygon/draw-controls";
+import ControlPanel from "./draw-polygon/control-panel";
+import App from "./draw-polygon/app";
+
 
 import Map, {
   Source,
@@ -179,6 +184,28 @@ export const Mapbox: FC<{
     setCustomlayer(customLayer);
   }, []);
 
+  const [features, setFeatures] = useState({});
+
+  const onUpdate = useCallback((e: any) => {
+      setFeatures(currFeatures => {
+          const newFeatures:any = {...currFeatures};
+          for (const f of e.features) {
+              newFeatures[f.id] = f;
+          }
+      return newFeatures;
+  });
+  }, []);
+
+  const onDelete = useCallback((e: any) => {
+      setFeatures(currFeatures => {
+      const newFeatures:any = {...currFeatures};
+          for (const f of e.features) {
+              delete newFeatures[f.id];
+          }
+      return newFeatures;
+  });
+  }, []);
+
   return (
     <>
       <Map
@@ -240,7 +267,11 @@ export const Mapbox: FC<{
           limit={50}
           color="yellow"
         /> */}
+
+        <App/>
       </Map>
+        <div id="control-panel"> <ControlPanel polygons={Object.values(features)} /> </div>
+      
     </>
   );
 };

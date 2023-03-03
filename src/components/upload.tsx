@@ -27,7 +27,7 @@ export const Upload= () => {
   };
 
   return (
-    <React.Fragment>
+    <>
       <span id="upload-container" title="Upload" className="right-menu-body">
         <button onClick={handleClickPlace}>Places</button>
         {openPlace && <UploadPlaces/>}
@@ -39,7 +39,6 @@ export const Upload= () => {
         <button onClick={handleClickObjects}>Objects</button>
         {openObject && <UploadObjects/>}
       </span>
-      
-    </React.Fragment>
+    </>
   );
 };

@@ -1,12 +1,13 @@
-import * as React from 'react';
-import area from '@turf/area';
+/* code taken from https://github.com/visgl/react-map-gl/blob/7.0-release/examples/draw-polygon/src/control-panel.tsx */
 
-function ControlPanel(props) {
+import * as React from "react";
+import area from "@turf/area";
+
+function ControlPanel(props: any) {
   let polygonArea = 0;
   for (const polygon of props.polygons) {
     polygonArea += area(polygon);
   }
-
   return (
     <div className="control-panel">
       <h3>Draw Polygon</h3>
@@ -16,14 +17,6 @@ function ControlPanel(props) {
           square meters
         </p>
       )}
-      <div className="source-link">
-        <a
-          href="https://github.com/visgl/react-map-gl/tree/7.0-release/examples/draw-polygon"
-          target="_new"
-        >
-          View Code ↗
-        </a>
-      </div>
     </div>
   );
 }
