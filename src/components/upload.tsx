@@ -4,7 +4,7 @@ import { UploadObjects } from "./uploadObjects";
 import { UploadPlaces } from "./uploadPlaces";
 import AddIcon from "@mui/icons-material/AddRounded";
 import { MenuButton } from "./menu-button";
-import { DragDropFile } from "./drap-drop";
+import { DragDropFile } from "./dragDrop";
 
 export const Upload= () => {
   
