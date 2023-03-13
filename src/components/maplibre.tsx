@@ -1,14 +1,18 @@
 import { FC, useRef, useState, useEffect, useCallback} from "react";
 import { useSearchParams } from "react-router-dom";
 import ControlPanel from "./draw-polygon/control-panel";
-import App from "./draw-polygon/app";
+import ControlPanelMarker from "./draggable-marker/control-panel";
+import PolygonApp from "./draw-polygon/app";
+import MarkerApp from "./draggable-marker/app";
 import { canada } from "../utils/canada";
 
+import type {MarkerDragEvent, LngLat} from 'react-map-gl';
 import Map, {
   Source,
   NavigationControl,
   GeolocateControl,
   ViewStateChangeEvent,
+  Marker,
 } from "react-map-gl";
 
 import "maplibre-gl/dist/maplibre-gl.css";
@@ -247,6 +251,7 @@ export const Maplibre: FC<{
     },
   };
 
+  // Funtions of Polygon app //
   const [features, setFeatures] = useState({});
 
   const onUpdate = useCallback((e: any) => {
@@ -269,6 +274,30 @@ export const Maplibre: FC<{
   });
   }, []);
 
+  // Functions of Draggable Marker app //
+  const [marker, setMarker] = useState({
+    latitude: 40,
+    longitude: -100
+  });
+  const [events, logEvents] = useState<Record<string, LngLat>>({});
+
+  const onMarkerDragStart = useCallback((event: MarkerDragEvent) => {
+    logEvents(_events => ({..._events, onDragStart: event.lngLat}));
+  }, []);
+
+  const onMarkerDrag = useCallback((event: MarkerDragEvent) => {
+    logEvents(_events => ({..._events, onDrag: event.lngLat}));
+
+    setMarker({
+      longitude: event.lngLat.lng,
+      latitude: event.lngLat.lat
+    });
+  }, []);
+
+  const onMarkerDragEnd = useCallback((event: MarkerDragEvent) => {
+    logEvents(_events => ({..._events, onDragEnd: event.lngLat}));
+  }, []);
+  
   return (
     <>
       <Map
@@ -302,7 +331,7 @@ export const Maplibre: FC<{
         <GeocoderControl
           mapboxAccessToken={mapboxAccessToken}
           position="top-left"
-        /> */}
+        />
         <UseOpenTorontoMarkers
           resourceId="12ef161c-1553-43f6-8180-fed700e42912"
           limit={50}
@@ -313,9 +342,11 @@ export const Maplibre: FC<{
           limit={50}
           color="yellow"
         />
-        <App/>
+        <PolygonApp />
+        <MarkerApp />
       </Map>
         <div id="control-panel"> <ControlPanel polygons={Object.values(features)} /> </div>
+        <div id="control-panel-marker"> <ControlPanelMarker events={events} /> </div>
     </>
   );
 };

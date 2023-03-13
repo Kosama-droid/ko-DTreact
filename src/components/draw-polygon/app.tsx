@@ -7,7 +7,7 @@ import ControlPanel from "./control-panel";
 
 const TOKEN = process.env.REACT_APP_MAPBOX_TOKEN;
 
-export default function App() {
+export default function PolygonApp() {
     
     const [features, setFeatures] = useState({});
 
@@ -51,5 +51,5 @@ export default function App() {
 }
 
 export function renderToDom(container:any) {
-    render(<App />, container);
+    render(<PolygonApp />, container);
   }

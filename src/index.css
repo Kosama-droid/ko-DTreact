@@ -185,11 +185,28 @@ td {
 }
 
 #control-panel {
+    z-index: 5;
     position: absolute;
-    z-index: 10;
-    top: 500px;
-    left: 500px;
-    background-color: #D9D9D9;
+    display: flex;
+    align-items: flex-end;
+    top: 0px;
+    right: 0px;
+    height: 12vh;
+    pointer-events: all;
+    background-color: #96C0D5;
+}
+
+#control-panel-marker {
+    z-index: 5;
+    position: absolute;
+    display: flex;
+    align-items: flex-end;
+    top: 0px;
+    right: 200px;
+    height: 12vh;
+    pointer-events: all;
+    background-color: #96C0D5;
+
 }
 
 #right-container {
