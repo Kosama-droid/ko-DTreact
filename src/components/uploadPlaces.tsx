@@ -54,7 +54,6 @@ export const UploadPlaces = () => {
             }
           ></input>
         </label>
-        <App />
         <button onClick={clickHandler}>Upload Place</button>
       </form>
       

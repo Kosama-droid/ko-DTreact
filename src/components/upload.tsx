@@ -4,6 +4,7 @@ import { UploadObjects } from "./uploadObjects";
 import { UploadPlaces } from "./uploadPlaces";
 import AddIcon from "@mui/icons-material/AddRounded";
 import { MenuButton } from "./menu-button";
+import { DragDropFile } from "./drap-drop";
 
 export const Upload= () => {
   
@@ -38,6 +39,12 @@ export const Upload= () => {
       <span id="upload-container" title="Upload" className="right-menu-body">
         <button onClick={handleClickObjects}>Objects</button>
         {openObject && <UploadObjects/>}
+      </span>
+      <br></br>
+      <br></br>
+      <br></br>
+      <span id="dragDrop-container" title="DragDrop" className="right-menu-body">
+        <DragDropFile></DragDropFile>
       </span>
     </>
   );
