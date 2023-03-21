@@ -1,3 +1,6 @@
+/* code from https://www.codemzy.com/blog/react-drag-drop-file-upload */
+/* to try - https://www.npmjs.com/package/react-drag-drop-files */
+
 import {useState, useRef} from "react";
 
 // drag drop file component
